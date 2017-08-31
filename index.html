@@ -1,0 +1,43 @@
+<!doctype html>
+<meta charset='utf-8'>
+<link href='dist/dragula.min.css' rel='stylesheet' type='text/css' />
+<link href='index.css' rel='stylesheet' type='text/css' />
+
+
+  <div id='sortable' class='container'>
+    <div>Clicking on these elements triggers a regular <code>click</code> event you can listen to.</div>
+    <div>Try dragging or clicking on this element.</div>
+    <div>Note how you can click normally?</div>
+    <div>Drags don't trigger click events.</div>
+    <div>Clicks don't end up in a drag, either.</div>
+    <div>This is useful if you have elements that can be both clicked or dragged.</div>
+  </div>
+
+  
+
+<script src='dist/dragula.min.js'></script>
+<!-- <script src='example/example.min.js'></script> -->
+<script>
+var $sortable = document.getElementById('sortable');
+
+dragula([$sortable]);
+
+$sortable.addEventListener('click', function (event) {
+ clickHandler(event);
+});
+
+
+function clickHandler(e) {
+  var target = e.target;
+
+  target.innerHTML += ' [click!]';
+
+  setTimeout(function () {
+    target.innerHTML = target.innerHTML.replace(/ \[click!\]/g, '');
+  }, 500);
+}
+
+console.debug('Done');
+</script>
+
+
