@@ -1,1 +1,4 @@
-Testing rows drga and drop sorting by using dragula library.
+Testing rows drag and drop sorting by using 
+[bevacqua/dragula](https://github.com/bevacqua/dragula){:target="_blank"} 
+library.
+
