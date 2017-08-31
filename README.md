@@ -1,4 +1,4 @@
 Testing rows drag and drop sorting by using 
-[bevacqua/dragula](https://github.com/bevacqua/dragula){:target="_blank"} 
+<a href="https://github.com/bevacqua/dragula" target="_blank">bevacqua/dragula</a>
 library.
 
