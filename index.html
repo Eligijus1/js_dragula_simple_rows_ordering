@@ -5,14 +5,19 @@
 
 
   <div id='sortable' class='container'>
-    <div>Clicking on these elements triggers a regular <code>click</code> event you can listen to.</div>
-    <div>Try dragging or clicking on this element.</div>
-    <div>Note how you can click normally?</div>
-    <div>Drags don't trigger click events.</div>
-    <div>Clicks don't end up in a drag, either.</div>
-    <div>This is useful if you have elements that can be both clicked or dragged.</div>
+    <div data-positionDefault="1">Item 1</div>
+    <div data-positionDefault="2">Item 2</div>
+    <div data-positionDefault="3">Item 3</div>
+    <div data-positionDefault="4">Item 4</div>
+    <div data-positionDefault="5">Item 5</div>
+    <div data-positionDefault="6">Item 6</div>
   </div>
-
+  
+<div class='container'>
+    <div>
+        <button onclick="printToConsoleDivs()">Print positions</button>
+    </div>
+</div>
   
 
 <script src='dist/dragula.min.js'></script>
@@ -26,7 +31,9 @@ $sortable.addEventListener('click', function (event) {
  clickHandler(event);
 });
 
-
+/**
+ * Show what div clicked.
+ */
 function clickHandler(e) {
   var target = e.target;
 
@@ -37,7 +44,23 @@ function clickHandler(e) {
   }, 500);
 }
 
-console.debug('Done');
+/**
+ * Print to console all 'sortable' divs positions coordinates.
+ */
+function printToConsoleDivs() {
+    var childDivs = $sortable.getElementsByTagName('div');
+
+    for( i=0; i< childDivs.length; i++ )
+    {
+      console.debug(childDivs[i].innerHTML + '. Old position: ' + childDivs[i].getAttribute('data-positionDefault') + '. New position: ' + (i + 1));
+    }
+}
 </script>
+
+
+
+
+
+
 
 
